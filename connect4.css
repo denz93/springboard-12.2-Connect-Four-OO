@@ -1,5 +1,20 @@
+:root {
+  --bg: #2b2d42;
+  --color: #edf2f4;
+}
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  font-family: 'Source Code Pro', monospace;
+}
 /* game board table */
-
+#game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100dvw;
+}
 #board td {
   width: 50px;
   height: 50px;
@@ -9,19 +24,15 @@
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
+  --color: #ffffff;
   margin: 5px;
   width: 80%;
   height: 80%;
   border-radius: 50%;
+  background-color: var(--color, #ffffff);
 }
 
-.piece.p1 {
-  background-color: red;
-}
 
-.piece.p2 {
-  background-color: blue;
-}
 
 /* column-top is table row of clickable areas for each column */
 
@@ -31,4 +42,29 @@
 
 #column-top td:hover {
   background-color: gold;
+}
+
+/* dialog */
+
+dialog::backdrop {
+  backdrop-filter: blur(5px);
+}
+
+dialog .dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+#start-dialog form {
+  display: flex;
+  gap: 1em;
+}
+
+/* button */
+button {
+  padding: 1em 2em;
+  background-color: transparent;
 }
